@@ -1,181 +1,79 @@
-# ERP App
+[![Laravel](https://img.shields.io/badge/Laravel-10-red)](https://laravel.com) [![PHP](https://img.shields.io/badge/PHP-8.2-blue)](https://php.net) [![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/erp-app/ci.yml?branch=main)](https://github.com/yourusername/erp-app/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+# 🚀 ERP App
 
 A Laravel-powered ERP suite for managing **Clients**, **Suppliers**, **Products**, **Orders**, and **Invoices**—complete with role-based access control, PDF invoicing, custom validation, and a modern Bootstrap 5 interface.
 
 ---
 
-## 🚀 Table of Contents
+## 📌 Table of Contents
 
-- [✨ Key Features](#-key-features)  
-- [🛠️ Tech Stack](#️-tech-stack)  
-- [📁 Project Structure](#-project-structure)  
-- [⚙️ Installation](#️-installation)  
-- [🔧 Configuration](#-configuration)  
-- [▶️ Running the App](#️-running-the-app)  
-- [👤 Default Admin](#-default-admin)  
-- [📄 License](#-license)  
+- [✨ Key Features](#✨-key-features)  
+- [🛠️ Tech Stack](#🛠️-tech-stack)  
+- [📁 Project Structure](#📁-project-structure)  
+- [⚙️ Installation](#⚙️-installation)  
+- [🔧 Configuration](#🔧-configuration)  
+- [▶️ Running the App](#▶️-running-the-app)  
+- [👤 Default Admin](#👤-default-admin)  
+- [📸 Screenshots](#📸-screenshots)  
+- [🔒 Permissions & Middleware](#🔒-permissions--middleware)  
+- [📄 License](#📄-license)  
 
 ---
 
 ## ✨ Key Features
 
-- **Authentication & Roles**  
-  Invite-only registration codes, Laravel Breeze, `admin` / `user` roles, Gates & Policies.
-- **Clients & Suppliers**  
+- 🔐 **Authentication & Roles**  
+  Invite-only registration codes, Laravel Breeze, `admin`/`user` roles, Gates & Policies.
+- 🤝 **Clients & Suppliers**  
   Full CRUD, filters, soft deletes, unique NIP/email validation.
-- **Product Catalog**  
+- 📦 **Product Catalog**  
   Supplier linking, price tracking, CSV import/export.
-- **Order Workflow**  
+- 🛒 **Order Workflow**  
   Many-to-many `order_product` pivot with quantities & prices.
-- **PDF Invoicing**  
-  One-click branded invoice export (barryvdh/laravel-dompdf), email attachments.
-- **Custom Validation**  
+- 📄 **PDF Invoicing**  
+  One-click branded invoice export via `barryvdh/laravel-dompdf`, email attachments.
+- ✔️ **Custom Validation**  
   FormRequest + 5+ custom rules (NIP, price > 0, quantity > 0, max length).
-- **Search & Filtering**  
+- 🔍 **Search & Filtering**  
   Global search by name/email/NIP, sortable tables.
-- **Admin Tools**  
+- ⚙️ **Admin Tools**  
   Registration code management, KPI dashboard, activity log observers.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer           | Technology                                      |
-|-----------------|-------------------------------------------------|
-| Framework       | Laravel **10** (PHP ≥ 8.2), MVC architecture    |
-| Database        | MySQL / MariaDB via Eloquent ORM                |
-| Authentication  | Laravel Breeze + Role middleware                |
-| Frontend        | Blade templates & Bootstrap **5**               |
-| Validation      | FormRequest + Custom Rules                      |
-| PDF Export      | barryvdh/laravel-dompdf                         |
-| Routing         | Resource routes, Auth & Role middleware         |
-| Extras          | Gates/Policies, Observers (Activity Log), Livewire-ready |
+| Layer          | Technology                                      |
+| -------------- | ----------------------------------------------- |
+| **Framework**  | Laravel 10 (PHP ≥ 8.2), MVC                     |
+| **Database**   | MySQL/MariaDB via Eloquent ORM                  |
+| **Auth**       | Laravel Breeze + Role middleware                |
+| **Frontend**   | Blade + Bootstrap 5                             |
+| **Validation** | FormRequest + Custom Rules                      |
+| **PDF Export** | barryvdh/laravel-dompdf                         |
+| **Routing**    | Resource routes, Auth & Role middleware         |
+| **Extras**     | Gates/Policies, Observers (Activity Log), Livewire-ready |
 
 ---
 
 ## 📁 Project Structure
 
-
-
-bash
-KopiujEdytuj
+```bash
 erp-app/
 ├── app/
-│   ├── Models/          # Users, Clients, Suppliers, Products, Orders, etc.
+│   ├── Models/          # User, Client, Supplier, Product, Order, Invoice, RegistrationCode, OrderProduct
 │   └── Http/
-│       ├── Controllers/ # RESTful resource controllers
-│       └── Requests/    # FormRequest validation
-├── resources/views/     # Blade templates per module
-├── routes/web.php       # Route groups, middleware
-└── database/            # Migrations, factories, seeders
+│       ├── Controllers/ # RESTful ResourceControllers
+│       └── Requests/    # FormRequest validation classes
+├── resources/views/     # Blade templates (layouts, modules)
+├── routes/
+│   └── web.php          # Route groups, middleware
+└── database/
+    ├── migrations/      # Table schemas
+    ├── seeders/         # Sample data (admin, clients, products…)
+    └── factories/       # Model factories
 
-
-✨ Key Features
-Authentication & Roles — Laravel Breeze with invite-only registration.
-
-
-Clients & Suppliers Management — Full CRUD, filters, soft delete.
-
-
-Product Catalog — Price tracking, supplier linking, CSV import/export.
-
-
-Order Workflow — Many-to-many pivot (order_product) with quantity, prices.
-
-
-PDF Invoicing — One-click export with branding, downloadable & emailable.
-
-
-Validation — FormRequest + custom rules: NIP, price > 0, email uniqueness.
-
-
-Search & Filtering — Search by name/email/NIP across all tables.
-
-
-Admin Tools — Registration code management, KPI dashboard, user activity log.
-
-
-Secure Access Control — Role-based middleware, policies, Gates.
-
-📚 Author Contributions
-Architecture: modular Laravel structure (admin/portal/shared separation)
-
-
-Models & DB: all migrations, factories, seeders, and pivot logic
-
-
-Controllers: full resource logic + custom pivot operations
-
-
-Validation: clean separation via FormRequests + custom rules
-
-
-UI/UX: modern Blade + Bootstrap 5 components
-
-
-PDF Export: integrated with DOMPDF and styled layout
-
-
-Security: full auth flow, policies, activity logging
-
-
-Testing: basic tests for controllers and services with PHPUnit/Pest
-
-
-
-⚙️ Getting Started
-Prerequisites
-PHP ≥ 8.2 & Composer
-
-
-Node ≥ 20 & NPM/Yarn
-
-
-MySQL 8 / MariaDB
-
-
-Installation
-bash
-KopiujEdytuj
-git clone https://github.com/yourusername/erp-app.git
-cd erp-app
-
-composer install
-npm install
-npm run dev
-
-Environment Setup
-bash
-KopiujEdytuj
-cp .env.example .env
-php artisan key:generate
-
-Edit the .env file:
-env
-KopiujEdytuj
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=erp_db
-DB_USERNAME=root
-DB_PASSWORD=secret
-
-Database Setup
-bash
-KopiujEdytuj
-php artisan migrate --seed
-
-Run the App
-bash
-KopiujEdytuj
-php artisan serve
-
-Visit: http://127.0.0.1:8000
-Default Admin Login:
-pgsql
-KopiujEdytuj
-E-mail:    admingmail.com  
-Password:  Admin123!
 
 
 | #  | Screenshot                              | Description                                |
