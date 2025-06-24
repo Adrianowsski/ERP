@@ -1,37 +1,61 @@
-ERP App
-A Laravel-powered ERP suite for managing clients, suppliers, products, orders, and invoices — complete with role-based access, PDF invoicing, custom validation, and a modern Bootstrap interface.
+# ERP App
 
-🚀 Overview
-ERP App simplifies business operations by providing role-based tools for:
-Admins – manage users, registration codes, and system settings; access reports.
+A Laravel-powered ERP suite for managing **Clients**, **Suppliers**, **Products**, **Orders**, and **Invoices**—complete with role-based access control, PDF invoicing, custom validation, and a modern Bootstrap 5 interface.
+
+---
+
+## 🚀 Table of Contents
+
+- [✨ Key Features](#-key-features)  
+- [🛠️ Tech Stack](#️-tech-stack)  
+- [📁 Project Structure](#-project-structure)  
+- [⚙️ Installation](#️-installation)  
+- [🔧 Configuration](#-configuration)  
+- [▶️ Running the App](#️-running-the-app)  
+- [👤 Default Admin](#-default-admin)  
+- [📄 License](#-license)  
+
+---
+
+## ✨ Key Features
+
+- **Authentication & Roles**  
+  Invite-only registration codes, Laravel Breeze, `admin` / `user` roles, Gates & Policies.
+- **Clients & Suppliers**  
+  Full CRUD, filters, soft deletes, unique NIP/email validation.
+- **Product Catalog**  
+  Supplier linking, price tracking, CSV import/export.
+- **Order Workflow**  
+  Many-to-many `order_product` pivot with quantities & prices.
+- **PDF Invoicing**  
+  One-click branded invoice export (barryvdh/laravel-dompdf), email attachments.
+- **Custom Validation**  
+  FormRequest + 5+ custom rules (NIP, price > 0, quantity > 0, max length).
+- **Search & Filtering**  
+  Global search by name/email/NIP, sortable tables.
+- **Admin Tools**  
+  Registration code management, KPI dashboard, activity log observers.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer           | Technology                                      |
+|-----------------|-------------------------------------------------|
+| Framework       | Laravel **10** (PHP ≥ 8.2), MVC architecture    |
+| Database        | MySQL / MariaDB via Eloquent ORM                |
+| Authentication  | Laravel Breeze + Role middleware                |
+| Frontend        | Blade templates & Bootstrap **5**               |
+| Validation      | FormRequest + Custom Rules                      |
+| PDF Export      | barryvdh/laravel-dompdf                         |
+| Routing         | Resource routes, Auth & Role middleware         |
+| Extras          | Gates/Policies, Observers (Activity Log), Livewire-ready |
+
+---
+
+## 📁 Project Structure
 
 
-Staff – handle product catalogs, orders, clients, suppliers, and invoice generation.
-
-
-Clients (optional) – view their orders and download invoice PDFs.
-
-
-
-🛠️ Tech Stack
-Layer
-Technology
-Framework
-Laravel 10 (PHP ≥ 8.2), MVC architecture
-Database
-MySQL / MariaDB via Eloquent ORM with migrations & seeders
-Authentication
-Laravel Breeze with roles: admin, user
-Frontend
-Blade templates with Bootstrap 5
-Validation
-FormRequest + 5+ custom rules (e.g., VAT/NIP, price > 0)
-PDF Export
-barryvdh/laravel-dompdf for branded invoice generation
-Routing
-Resource routes with auth and role middleware
-Extra
-Gates/Policies, observers (activity log), Livewire-ready
 
 bash
 KopiujEdytuj
@@ -150,8 +174,8 @@ Visit: http://127.0.0.1:8000
 Default Admin Login:
 pgsql
 KopiujEdytuj
-E-mail:    admin@demo.test  
-Password:  password
+E-mail:    admingmail.com  
+Password:  Admin123!
 
 
 | #  | Screenshot                              | Description                                |
