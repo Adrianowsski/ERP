@@ -150,7 +150,7 @@ Visit `/login` and use the default admin credentials below.
 
 | Email               | Password   |
 | ------------------- | ---------- |
-| `admin@example.com` | `password` |
+| `admin@example.com` | `Admin123!` |
 
 *(created by DatabaseSeeder; change immediately in production).*
 
