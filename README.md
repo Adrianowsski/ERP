@@ -21,7 +21,7 @@ A Laravel-powered ERP suite for managing **Clients**, **Suppliers**, **Products*
 
 ---
 
-## ✨ Key Features
+# ✨ Key Features
 
 * 🔐 **Authentication & Role Management**
   Laravel Breeze scaffolding (Sanctum-ready), invite-only registration via single-use codes, `admin` / `user` roles enforced by Gates/Policies.
