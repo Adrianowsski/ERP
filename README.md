@@ -1,4 +1,9 @@
-[![Laravel](https://img.shields.io/badge/Laravel-10-red)](https://laravel.com) [![PHP](https://img.shields.io/badge/PHP-8.2-blue)](https://php.net) [![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/erp-app/ci.yml?branch=main)](https://github.com/yourusername/erp-app/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Laravel 10](https://img.shields.io/badge/Laravel-10-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP 8.2](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Docker Compose](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
 
 # 🚀 ERP App
 
