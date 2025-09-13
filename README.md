@@ -4,67 +4,54 @@
 [![Docker Compose](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-
 # 🚀 ERP App
 
-A Laravel-powered ERP suite for managing **Clients**, **Suppliers**, **Products**, **Orders**, and **Invoices**—complete with role-based access control, PDF invoicing, custom validation, and a modern Bootstrap 5 interface.
+A Laravel-powered ERP suite for managing **Clients**, **Suppliers**, **Products**, **Orders**, and **Invoices** — with role-based access, PDF invoicing, custom validation, and a modern Bootstrap 5 UI.
 
 ---
 
 ## 📌 Table of Contents
-
-* [✨ Key Features](#key-features)
-* [🛠️ Tech Stack](#tech-stack)
-* [📁 Project Structure](#project-structure)
-* [⚙️ Installation](#installation)
-* [🔧 Configuration](#configuration)
-* [▶️ Running the App](#running-the-app)
-* [👤 Default Admin](#default-admin)
-* [📸 Screenshots](#screenshots)
-* [🔒 Permissions & Middleware](#permissions--middleware)
-* [📄 License](#license)
-
----
-
-# ✨ Key Features
-
-* 🔐 **Authentication & Role Management**
-  Laravel Breeze scaffolding (Sanctum-ready), invite-only registration via single-use codes, `admin` / `user` roles enforced by Gates/Policies.
-* 🤝 **Clients & Suppliers**
-  Full CRUD with soft deletes, quick filters, and unique NIP/email validation.
-* 📦 **Product Catalog**
-  Supplier linkage, price tracking history, CSV/Excel import & export.
-* 🛒 **Order Workflow**
-  Many‑to‑many `order_product` pivot including quantity, buy & sell price; automatic subtotal and tax calculation.
-* 📄 **PDF Invoicing**
-  One‑click, brand‑ready PDF generation using `barryvdh/laravel-dompdf`; optional email attachment.
-* ✔️ **Custom Validation**
-  Centralised `FormRequest` classes with >5 custom rules (NIP checksum, positive price, positive quantity, max length, future date disallowed).
-* 🔍 **Search & Filtering**
-  Global full‑text search across clients, suppliers & products; sortable & paginated tables.
-* 📊 **Admin Dashboard**
-  Registration‑code management, KPI widgets, and activity‑log observers.
-* 🧰 **Developer Friendly**
-  Clean MVC architecture, service classes, repository pattern, feature tests, Docker & CI workflow.
+- [✨ Key Features](#key-features)
+- [🛠️ Tech Stack](#tech-stack)
+- [📁 Project Structure](#project-structure)
+- [⚙️ Installation](#installation)
+- [🔧 Configuration](#configuration)
+- [▶️ Running the App](#running-the-app)
+- [👤 Default Admin](#default-admin)
+- [📸 Screenshots](#screenshots)
+- [🔒 Permissions & Middleware](#permissions--middleware)
+- [📄 License](#license)
 
 ---
 
-## 🛠️ Tech Stack
+<h2 id="key-features">✨ Key Features</h2>
+
+- 🔐 **Authentication & Roles** — Laravel Breeze (Sanctum-ready), invite-only registration (single-use codes), `admin` / `user` via Gates/Policies.  
+- 🤝 **Clients & Suppliers** — full CRUD, soft deletes, quick filters, unique NIP/email validation.  
+- 📦 **Products** — supplier linkage, price history, CSV/Excel import/export.  
+- 🛒 **Orders** — many-to-many `order_product` (qty, buy/sell price), subtotal & tax calculation.  
+- 📄 **PDF Invoices** — one-click PDFs via `barryvdh/laravel-dompdf`, optional email attachment.  
+- ✔️ **Custom Validation** — central `FormRequest` + reguły: NIP checksum, positive price/qty, max length, no future dates.  
+- 🔍 **Search & Filters** — global search, sortable & paginated tables.  
+- 📊 **Admin Dashboard** — KPI widgets, registration-code management, activity log.  
+- 🧰 **Developer Friendly** — czysty MVC, serwisy, repozytoria, gotowy setup pod Docker.
+
+---
+
+<h2 id="tech-stack">🛠️ Tech Stack</h2>
 
 | Layer         | Technology                                       |
-| ------------- | ------------------------------------------------ |
-| **Framework** | Laravel 10 (PHP ≥ 8.2)                           |
-| **Database**  | MySQL / MariaDB – Eloquent ORM                   |
+|---------------|---------------------------------------------------|
+| **Framework** | Laravel 10 (PHP ≥ 8.2)                           |
+| **Database**  | MySQL / MariaDB — Eloquent ORM                   |
 | **Auth**      | Laravel Breeze, Gates & Policies                 |
-| **Frontend**  | Blade, Bootstrap 5, Vite/ESBuild, Livewire‑ready |
+| **Frontend**  | Blade, Bootstrap 5, Vite/ESBuild, Livewire-ready |
 | **PDF**       | barryvdh/laravel-dompdf                          |
-| **Testing**   | PHPUnit, Laravel Pint / PHPStan                  |
-| **CI/CD**     | GitHub Actions (build, test, Pint, deploy)       |
+| **Lint/QA**   | Laravel Pint, PHPStan                            |
 
 ---
 
-## 📁 Project Structure
-
+<h2 id="project-structure">📁 Project Structure</h2>
 ```text
 app/
 ├── Models/
@@ -91,7 +78,7 @@ routes/
 
 ---
 
-## ⚙️ Installation
+<h2 id="installation">⚙️ Installation</h2>
 
 ### 🔑 Prerequisites
 
@@ -99,12 +86,12 @@ routes/
 * **Composer v2**
 * **Node.js 18+** & **npm**
 * **MySQL** or **MariaDB**
-* *(Optional)* **Docker & Docker Compose** for containerised local setup
+* **Docker & Docker Compose** for containerised local setup
 
 ### 🏃‍♂️ Quick start
 
 ```bash
-git clone https://github.com/yourusername/erp-app.git
+git clone https://github.com/Adrioanowskii/erp-app.git
 cd erp-app
 
 # PHP dependencies
@@ -130,7 +117,7 @@ Open `http://127.0.0.1:8000` in your browser and log in with the [default admin
 > **Docker**
 > Run `./vendor/bin/sail up -d` or simply `docker compose up -d` to spin up a full stack (PHP‑FPM, Nginx, MySQL, Mailhog) in containers.
 
-## 🔧 Configuration
+<h2 id="configuration">🔧 Configuration</h2>
 
 | Variable        | Purpose                             |
 | --------------- | ----------------------------------- |
@@ -141,7 +128,7 @@ Open `http://127.0.0.1:8000` in your browser and log in with the [default admin
 
 ---
 
-## ▶️ Running the App
+<h2 id="running-the-app">▶️ Running the App</h2>
 
 ```bash
 php artisan serve    # default http://127.0.0.1:8000
@@ -151,7 +138,7 @@ Visit `/login` and use the default admin credentials below.
 
 ---
 
-## 👤 Default Admin
+<h2 id="default-admin">👤 Default Admin</h2>
 
 | Email               | Password   |
 | ------------------- | ---------- |
@@ -161,7 +148,7 @@ Visit `/login` and use the default admin credentials below.
 
 ---
 
-## 📸 Screenshots
+<h2 id="screenshots">📸 Screenshots</h2>
 
 | #  | Screenshot                       | Description                                |
 | -- | -------------------------------- | ------------------------------------------ |
@@ -184,7 +171,7 @@ Visit `/login` and use the default admin credentials below.
 | 17 | ![](img/17-OrderInvoice.png)     | Branded invoice PDF                        |
 | 18 | ![](img/18-RegisterCodeView.png) | Admin invite code management               |
 
-## 🔒 Permissions & Middleware & Middleware
+<h2 id="permissions--middleware">🔒 Permissions & Middleware</h2>
 
 ```php
 Route::middleware(['auth'])->group(function () {
@@ -207,7 +194,7 @@ Route::middleware(['auth'])->group(function () {
 
 ---
 
-## 📄 License
+<h2 id="license">📄 License</h2>
 
 This project is open‑source software licensed under the [MIT license](LICENSE).
 
