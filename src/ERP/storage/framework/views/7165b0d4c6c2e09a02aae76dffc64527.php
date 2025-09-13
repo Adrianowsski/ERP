@@ -1,0 +1,17 @@
+<?php $__env->startSection('title','Create Client'); ?>
+
+<?php $__env->startSection('content'); ?>
+    <h1 class="mb-4"><i data-feather="plus-circle" class="me-1"></i> Create Client</h1>
+
+    <form method="POST" action="<?php echo e(route('clients.store')); ?>">
+        <?php echo csrf_field(); ?>
+        <?php echo $__env->make('clients.partials.form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-success"><i data-feather="save" class="me-1"></i>Save Client</button>
+            <a href="<?php echo e(route('clients.index')); ?>" class="btn btn-secondary"><i data-feather="arrow-left" class="me-1"></i>Cancel</a>
+        </div>
+    </form>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\elpartner\resources\views/clients/create.blade.php ENDPATH**/ ?>
